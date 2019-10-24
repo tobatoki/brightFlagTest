@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Brightflag Code Test</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="js/main.js"></script>
+
+</head>
+<body ng-app="bfCodeTest">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">BF Code Test</a>
+	</nav>
+
+	<div ng-controller="studentCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student</th>
+				<th>Subject</th>
+			</tr>
+			<tr ng-repeat="student in students">
+				<td>{{student.firstName + " " + student.lastName}}</td>
+				<td>
+				<select name="subjects" ng-model="selectedItem">
+					  <option value="{{subject.subjectID}}" ng-repeat="subject in subjects">{{subject.subjectName}}</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+	
+	<div ng-controller="examCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student</th>
+				<th>Exam</th>
+			</tr>
+			
+			<tr ng-repeat="student in students">
+			<td>{{student.firstName + " " + student.lastName}}</td>
+			<td>
+			<select name="exams" ng-model="selectedItem">
+					<option value="{{exam.examID}}" ng-repeat="exam in exams">{{exam.examName}}</option>
+			</select>
+			</td> 
+			</tr>
+			
+		</table>
+
+	</div>
+	
+	<div ng-controller="gradeCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student</th>
+				<th>Grade</th>
+				<th>Exam</th>
+			</tr>
+			
+			<tr ng-repeat="student in students">
+			<td>{{student.firstName + " " + student.lastName}}</td>
+			<td>{{studentGrades.studentGrade}}</td>
+			<td>
+			<select name="exams" ng-model="selectedItem">
+					<option value="{{exam.examID}}" ng-repeat="exam in exams">{{exam.examName}}</option>
+			</select>
+			</td> 
+			</tr>
+			
+		</table>
+
+	</div>
+	
+	<div ng-controller="studentCtrl" class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student</th>
+				<th>Subject</th>
+			</tr>
+			<tr ng-repeat="student in students">
+				<td>{{student.firstName + " " + student.lastName}}</td>
+				<td>
+				<select name="subjects" ng-model="selectedItem">
+					  <option value="{{subject.subjectID}}" ng-repeat="subject in subjects">{{subject.subjectName}}</option>
+					</select>
+					<button type="button" class="btn btn-info">Select</button>
+				</td>
+			</tr>
+		</table>
+
+	</div>
+
+</body>
+</html>
